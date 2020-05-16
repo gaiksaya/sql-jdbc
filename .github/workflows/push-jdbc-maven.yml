@@ -41,4 +41,4 @@ jobs:
           mkdir /home/runner/.gradle
           aws s3 cp s3://opendistro-docs/github-actions/gradle.properties /home/runner/.gradle/
           
-          ../gradlew publishShadowPublicationToSonatype-stagingRepository -Dcompiler.java=10 -Dbuild.snapshot=false -Djavax.net.ssl.trustStore=$JAVA_HOME/lib/security/cacerts
+          ./gradlew publishShadowPublicationToSonatype-stagingRepository -Dcompiler.java=10 -Dbuild.snapshot=false -Djavax.net.ssl.trustStore=$JAVA_HOME/lib/security/cacerts
