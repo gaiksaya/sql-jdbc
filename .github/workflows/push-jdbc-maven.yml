@@ -39,7 +39,6 @@ jobs:
           gpg --import pgp-public-key
           gpg --allow-secret-key-import --import pgp-private-key
           
-
           mkdir /home/runner/.gradle
           aws s3 cp s3://opendistro-docs/github-actions/gradle.properties /home/runner/.gradle/
           cd sql-jdbc
