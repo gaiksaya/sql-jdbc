@@ -2,9 +2,8 @@ name: Upload sql-jdbc Jar to Maven
 
 # This workflow will upload the sql-jdbc jar to maven when a new tag is cut
 on:
-  push:
-    tags: 
-      - v*
+  repository_dispatch:
+    types: [maven]
 
 jobs:
   upload-jdbc-jar:
