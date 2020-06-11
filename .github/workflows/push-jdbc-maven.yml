@@ -40,5 +40,8 @@ jobs:
           
           mkdir /home/runner/.gradle
           aws s3 cp s3://opendistro-docs/github-actions/gradle.properties /home/runner/.gradle/
+          sed -i /^ossrh/d /home/runner/.gradle/gradle.properties
+          echo "ossrhUsername=${{secrets.ossrhUsername}}" >> /home/runner/.gradle/gradle.properties
+          echo "ossrhPassword=${{secrets.ossrhPassword}}" >> /home/runner/.gradle/gradle.properties
           cd sql-jdbc
           ./gradlew publishShadowPublicationToSonatype-stagingRepository -Dcompiler.java=10 -Dbuild.snapshot=false -Djavax.net.ssl.trustStore=$JAVA_HOME/lib/security/cacerts
